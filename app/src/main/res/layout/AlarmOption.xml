@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+	<!--
+    <TextView
+        android:text="@string/hello_world"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:id="@+id/Text"/>
+	
+	<Button
+		android:text="设置时间"
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:onClick="settime"/>
+	<Button
+		android:text="老子不干了"
+		android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:onClick="canceltime"/>
+	-->
+	<ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/LV">
+    </ListView>
+	
+		
+</LinearLayout>

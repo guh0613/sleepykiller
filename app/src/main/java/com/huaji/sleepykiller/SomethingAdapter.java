@@ -31,7 +31,7 @@ public class SomethingAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.item,parent,false);
+        convertView = LayoutInflater.from(mContext).inflate(R.layout.itemforsomething,parent,false);
         TextView txt_aName = (TextView) convertView.findViewById(R.id.item);
         txt_aName.setText(mData.get(position).getaName());
         return convertView;
