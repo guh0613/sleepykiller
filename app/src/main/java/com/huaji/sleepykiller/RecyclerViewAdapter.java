@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import java.util.List;
 import android.content.*;
+import android.widget.*;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -20,12 +21,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView imageView;
         TextView titleTextView;
         LinearLayout linearLayout;
+		Switch switc;
 
         public ViewHolder(View view){
             super(view);
             titleTextView=(TextView)view.findViewById(R.id.time);
 			
             linearLayout=(LinearLayout)view.findViewById(R.id.layout);
+			
+			//switc=(Switch)view.findViewById(R.id.layout.s
 
         }
     }
@@ -55,9 +59,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 				public void onClick(View v) {
 					int position=holder.getAdapterPosition();
 					AlarmTime AlarmTime=mList.get(position);
-					//Toast.makeText(v.getContext(),AlarmTime.getTime() + "当前位置" + position,Toast.LENGTH_SHORT).show();
+					Toast.makeText(v.getContext(),AlarmTime.getTime() + "当前位置" + position,Toast.LENGTH_SHORT).show();
 					Intent intent = new Intent(v.getContext(),AlarmOption.class);
+					String s = ""+position;
+					intent.putExtra("data",s); 
 					v.getContext().startActivity(intent);
+					
+					
 
 				}
 			});
@@ -68,3 +76,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return mList.size();
     }
 }
+

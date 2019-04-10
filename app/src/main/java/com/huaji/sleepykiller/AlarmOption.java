@@ -87,13 +87,25 @@ public class AlarmOption extends Activity {
 	private String time = "\r\n设置时间\r\n";
 	private String music = "\r\n选择叫醒你的音乐\r\n";
 	private String way = "\r\n选择...我也不知道，你来编\r\n";
-	private Intent intent;
+	private Intent intent1;
+	private String data="96877";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.AlarmOption);
-        intent = new Intent(AlarmOption.this, Bark.class);
+		Intent intent = getIntent();
+		data = intent.getStringExtra("data");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+        intent1 = new Intent(AlarmOption.this, Bark.class);
 		mContext = AlarmOption.this;
         list = (ListView) findViewById(R.id.LV);
         final LayoutInflater inflater = LayoutInflater.from(this);
@@ -131,8 +143,8 @@ public class AlarmOption extends Activity {
 									calendar.set(Calendar.SECOND, 0);
 									calendar.set(Calendar.MILLISECOND, 0);
 									
-									intent.putExtra("music", true);
-									PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmOption.this, 0, intent, 0);
+									intent1.putExtra("music", true);
+									PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmOption.this, 0, intent1, 0);
 									AlarmManager am;
 									//获取系统进程
 									am = (AlarmManager)getSystemService(ALARM_SERVICE);
@@ -143,16 +155,16 @@ public class AlarmOption extends Activity {
 									Toast.makeText(AlarmOption.this,tmps,2000).show();
 									tmps = "你设置的时间是\r\n" + tmps;
 									Text = (TextView) headView.findViewById(R.id.settime);
-									Text.setText(tmps);
+									Text.setText(tmps+";"+data);
 									
 								}
 						},hour,minute,true).show();
 					}
 					if(position == 2)
 					{
-						Intent intent = new Intent(AlarmOption.this, Bark.class);
-        				intent.putExtra("music", true);
-        				PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmOption.this, 0, intent, 0);
+						
+        				intent1.putExtra("music", true);
+        				PendingIntent pendingIntent = PendingIntent.getBroadcast(AlarmOption.this, 0, intent1, 0);
         				AlarmManager am;
         				//获取系统进程
         				am = (AlarmManager)getSystemService(ALARM_SERVICE);
@@ -160,14 +172,17 @@ public class AlarmOption extends Activity {
         				am.cancel(pendingIntent);
        					Toast.makeText(mContext,"给你取消了",2000).show();
 						Text = (TextView) headView.findViewById(R.id.settime);
-						Text.setText("不搞了吗");
+						Text.setText("不搞了吗"+";"+data);
 					
 					}
-					if(position == 3||position==4||position==5)
+					if(position == 3||position==4)
 					{
 						Toast.makeText(mContext,"老子没想好",2000).show();
 					}
-					
+					if(position==5)
+					{
+						Toast.makeText(mContext,data,2000).show();
+					}
 						
 				}
 			}

@@ -6,6 +6,9 @@ import android.support.v7.widget.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.huaji.sleepykiller.*;
+import android.support.design.widget.*;
+import android.view.*;
+import android.content.*;
 
 public class MainActivity extends Activity 
 {
@@ -23,6 +26,22 @@ public class MainActivity extends Activity
         recyclerView.setLayoutManager(layoutManager);
         adapter=new RecyclerViewAdapter(mList);
         recyclerView.setAdapter(adapter);
+		
+		
+	
+		/*
+		FloatingActionButton fab= ((FloatingActionButton) findViewById(R.id.contact_fab));
+        fab.setOnClickListener(new View.OnClickListener()
+			{
+				@Override
+				public void onClick(View v)
+				{
+					Intent intent = new Intent(MainActivity.this,AlarmOption.class);
+					startActivity(intent);
+
+				}
+			});
+		*/
     }
 	private void Something()
 	{
