@@ -89,14 +89,14 @@ public class AlarmOption extends Activity {
 	private String way = "\r\n选择...我也不知道，你来编\r\n";
 	private Intent intent1;
 	private String data="96877";
-
+	private String Switch = "qqqqqq";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.AlarmOption);
 		Intent intent = getIntent();
 		data = intent.getStringExtra("data");
-		
+		Switch = intent.getStringExtra("switch");
 		
 		
 		

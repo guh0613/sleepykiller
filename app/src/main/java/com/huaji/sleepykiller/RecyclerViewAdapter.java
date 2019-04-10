@@ -12,16 +12,18 @@ import android.widget.Toast;
 import java.util.List;
 import android.content.*;
 import android.widget.*;
+import android.widget.CompoundButton.*;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<AlarmTime> mList;
-
+	private String a ="1";
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView titleTextView;
         LinearLayout linearLayout;
 		Switch switc;
+		
 
         public ViewHolder(View view){
             super(view);
@@ -29,8 +31,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 			
             linearLayout=(LinearLayout)view.findViewById(R.id.layout);
 			
-			//switc=(Switch)view.findViewById(R.id.layout.s
+			switc=(Switch)view.findViewById(R.id.switc);
+			
+			switc.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
+					@Override
+					public void onCheckedChanged(CompoundButton buttonView,
+												 boolean isChecked) {
+						// TODO Auto-generated method stub
+						if (isChecked) {
+							a ="a";
+						} else {
+							a="b";
+						}
+					}
+				});
+			
         }
     }
 
@@ -59,10 +75,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 				public void onClick(View v) {
 					int position=holder.getAdapterPosition();
 					AlarmTime AlarmTime=mList.get(position);
-					Toast.makeText(v.getContext(),AlarmTime.getTime() + "当前位置" + position,Toast.LENGTH_SHORT).show();
+					Toast.makeText(v.getContext(),AlarmTime.getTime() + "," + position+","+a,Toast.LENGTH_SHORT).show();
 					Intent intent = new Intent(v.getContext(),AlarmOption.class);
 					String s = ""+position;
 					intent.putExtra("data",s); 
+					intent.putExtra("switch",a);
 					v.getContext().startActivity(intent);
 					
 					

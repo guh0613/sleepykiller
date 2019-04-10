@@ -17,6 +17,7 @@
 		android:textSize="40sp"/>
 
 	<Switch
+		android:id="@+id/switc"
 		android:layout_width="match_parent"
 		android:layout_height="50sp"/>
 
