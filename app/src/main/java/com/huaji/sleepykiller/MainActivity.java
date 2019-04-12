@@ -47,7 +47,9 @@ public class MainActivity extends Activity
 	{
         
             AlarmTime one= new AlarmTime( "13:00");
+			AlarmTime two= new AlarmTime("12:31");
             mList.add(one);
+			mList.add(two);
         
 
 	}

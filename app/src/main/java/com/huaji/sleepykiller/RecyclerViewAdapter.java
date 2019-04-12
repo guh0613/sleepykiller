@@ -17,7 +17,7 @@ import android.widget.CompoundButton.*;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private List<AlarmTime> mList;
-	private String a ="1";
+	private String a ="关";
     public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imageView;
         TextView titleTextView;
@@ -40,9 +40,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 												 boolean isChecked) {
 						// TODO Auto-generated method stub
 						if (isChecked) {
-							a ="a";
+							a ="开";
 						} else {
-							a="b";
+							a="关";
 						}
 					}
 				});
